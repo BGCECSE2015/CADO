@@ -1,0 +1,1 @@
+This folder is used for finalizing the second part of the pipeline and combining it into one executable. We assume our input to be the ToPy output and our output will be a .step file containing the NURBS.

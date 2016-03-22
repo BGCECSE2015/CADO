@@ -1,0 +1,10 @@
+*.o
+.cproject
+.project
+OpenCascade
+cmake_install.cmake
+CADToVoxel
+CMakeCache.txt
+CMakeFiles/
+build/Makefile
+*.vtk

@@ -27,7 +27,7 @@ def reorient_object(input_file_name, output_file_name, refinement_level):
 
 	# import the draft module
 	import Draft
-	Draft.move(FreeCAD.getDocument("tmp").Objects[0], displacement, copy=False) # perform move
+	#Draft.move(FreeCAD.getDocument("tmp").Objects[0], displacement, copy=False) # perform move
 	Draft.rotate(FreeCAD.getDocument("tmp").Objects[0], angleRot1, centerRot,axis=axisRot1,copy=False) # perform first rotation
 	Draft.rotate(FreeCAD.getDocument("tmp").Objects[0], angleRot2, centerRot,axis=axisRot2,copy=False) # perform second rotation
 
@@ -39,3 +39,4 @@ def reorient_object(input_file_name, output_file_name, refinement_level):
 	Part.export(__objToExport__, output_file_name+".step")
 	print "Output file " + output_file_name+".step" + " exported."
 
+	return bB.YMax

@@ -26,12 +26,13 @@ def export_step(nurbs_idx, nurbs_pts, refinement_level, input_file_name, output_
 
 	# here, the part is brought into the right coordinate system 
 	# (something somewhere messes it up, but its too late to get into that mess) Laavaa!
-	reorient_object(input_file_name, output_file_name, refinement_level)
+	yMax = reorient_object(input_file_name, output_file_name, refinement_level)
 
+	print yMax 
 	# process allowed domains
-	process_allowed_domains(allowed_domains_file_name, output_file_name, refinement_level)
+	process_allowed_domains(allowed_domains_file_name, output_file_name, refinement_level, yMax)
 
 	# process non-changing domains
-	process_nonchanging_domains(nonchanging_file_name, output_file_name, refinement_level)
+	process_nonchanging_domains(nonchanging_file_name, output_file_name, refinement_level, yMax)
 
 	print "Export done."

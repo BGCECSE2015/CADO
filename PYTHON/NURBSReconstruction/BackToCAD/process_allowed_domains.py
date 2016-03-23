@@ -4,20 +4,31 @@ import FreeCAD
 
 from create_mega_bounding_box_object import create_mega_bounding_box_object
 
-def process_allowed_domains(allowed_domains_file_name, output_file_name, refinement_level):
+def process_allowed_domains(allowed_domains_file_name, output_file_name, refinement_level, yMax):
 	if len(allowed_domains_file_name) != 0:
 		print "Checking allowed domains..."
 		# take the intersection of allowed domains
 		# read in step file for allowed domains
+		
+		__objs_original__ = FreeCAD.getDocument("tmp").findObjects()
+		len_original =len(__objs_original__)
+
 		Import.insert(allowed_domains_file_name, "tmp")
 		__objs__ = FreeCAD.getDocument("tmp").findObjects()
+		len_new =len(__objs__)
 
 		# get bounding box of the allowed domains
 		# NOTE: ASSUMING ALLOWED DOMAINS ARE ALL FUSED IN ONE OBJECT.
-		#import Draft
-		#scaleFactor = 2**refinement_level
-		#scaleVector = FreeCAD.Vector(scaleFactor, scaleFactor, scaleFactor)
-		#Draft.scale(FreeCAD.getDocument("tmp").Objects[0], scaleVector)#, center=FreeCAD.Vector(1,1,1),copy=False) # perfom scaling
+		import Draft
+		scaleFactor = 2**refinement_level
+		scaleVector = FreeCAD.Vector(scaleFactor, scaleFactor, scaleFactor)
+		
+		print len(__objs__)
+		Draft.scale(__objs__[-1], scaleVector, center=FreeCAD.Vector(0,yMax,0),copy=True) # perfom scaling
+		__objs__ = FreeCAD.getDocument("tmp").findObjects()
+		FreeCAD.getDocument("tmp").removeObject(__objs__[-2].Name)
+		__objs__ = FreeCAD.getDocument("tmp").findObjects()
+		print len(__objs__)
 
 		# create mega BB object
 		create_mega_bounding_box_object()
@@ -43,8 +54,6 @@ def process_allowed_domains(allowed_domains_file_name, output_file_name, refinem
 
 		# update __objs__
 		__objs__ = FreeCAD.getDocument("tmp").findObjects()
-
-		print __objs__
 
 		if len(__objs__) > 1:
 			# create a fuse object and union all "Common"s

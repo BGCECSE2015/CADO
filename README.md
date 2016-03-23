@@ -16,3 +16,5 @@ The single steps of the program are completely independent and exchangeable. How
 - Installation Guide
 - User Guide
 - CAD-integrated topology optimization
+
+CADO itself is licensed under the open source BSD license.

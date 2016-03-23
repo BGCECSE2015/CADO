@@ -11,7 +11,7 @@ input file and set the parameters. By issuing the Run command the tool starts th
 4. NURBS surface is extracted
 5. Boolean operation is executed for final geometry
 
-The single steps of the program are completely independent and exchangeable. How they are implemented and how they collaborate is explained in Documentation files in the Doc folder:
+The single steps of the program are completely independent and exchangeable. How they are implemented and how they collaborate is explained in documentation files in the Doc folder:
 
 - Installation Guide
 - User Guide

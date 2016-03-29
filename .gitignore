@@ -1,4 +1,6 @@
 CADO
+Makefile_GUI
+*.o
 *.nav
 *.log
 *.aux

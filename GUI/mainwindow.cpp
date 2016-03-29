@@ -376,6 +376,7 @@ void MainWindow::disableAllElements(){
     this->ui->CoarseningSpinBox->setDisabled(true);
     this->ui->Output_selector->setDisabled(true);
     this->ui->runButton->setDisabled(true);
+    this->ui->startFreeCadButton->hide();
 }
 
 void MainWindow::enableAllElements(){

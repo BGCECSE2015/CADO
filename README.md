@@ -13,8 +13,8 @@ input file and set the parameters. By issuing the Run command the tool starts th
 
 The installation and usage of CADO as well as the background theory and implementation details are explained in documentation files in the Doc folder:
 
-- Installation Guide
-- User Guide
-- CAD-integrated topology optimization
+- Installation_Guide.pdf
+- User_Guide.pdf
+- CADO_Integrated_Topology_Optimization.pdf
 
 CADO itself is licensed under the open source BSD license.

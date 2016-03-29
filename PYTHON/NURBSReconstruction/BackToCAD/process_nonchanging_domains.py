@@ -2,7 +2,7 @@ import FreeCAD
 import Import
 import Part
 
-def process_nonchanging_domains(nonchanging_file_name, output_file_name, refinement_level, yMax):
+def process_nonchanging_domains(nonchanging_file_name, output_file_name):
 	if len(nonchanging_file_name) != 0:
 
 		__objs_original__ = FreeCAD.getDocument("tmp").findObjects()
@@ -12,18 +12,6 @@ def process_nonchanging_domains(nonchanging_file_name, output_file_name, refinem
 
 		# get objects
 		__objs__ = FreeCAD.getDocument("tmp").findObjects()
-		len_new =len(__objs__)
-
-		import Draft
-		scaleFactor = 2**refinement_level
-		scaleVector = FreeCAD.Vector(scaleFactor, scaleFactor, scaleFactor)
-		
-		print len(__objs__)
-		Draft.scale(__objs__[-1], scaleVector, center=FreeCAD.Vector(0,yMax,0),copy=True) # perfom scaling
-		__objs__ = FreeCAD.getDocument("tmp").findObjects()
-		FreeCAD.getDocument("tmp").removeObject(__objs__[-2].Name)
-		__objs__ = FreeCAD.getDocument("tmp").findObjects()
-		print len(__objs__)
 
 		# create fusion object
 		FreeCAD.getDocument("tmp").addObject("Part::MultiFuse", "FusionTool")

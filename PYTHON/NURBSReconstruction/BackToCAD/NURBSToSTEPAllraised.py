@@ -14,7 +14,7 @@ from process_allowed_domains import process_allowed_domains
 from process_nonchanging_domains import process_nonchanging_domains
 from reorient_object import reorient_object
 
-def export_step(nurbs_idx, nurbs_pts, refinement_level, input_file_name, output_file_name, nonchanging_file_name, allowed_domains_file_name):
+def export_step(nurbs_idx, nurbs_pts, input_file_name, output_file_name, nonchanging_file_name, allowed_domains_file_name):
 
 	# generate and get faces
 	faceHolder = get_faces_from_points(nurbs_idx, nurbs_pts)
@@ -26,13 +26,12 @@ def export_step(nurbs_idx, nurbs_pts, refinement_level, input_file_name, output_
 
 	# here, the part is brought into the right coordinate system 
 	# (something somewhere messes it up, but its too late to get into that mess) Laavaa!
-	yMax = reorient_object(input_file_name, output_file_name, refinement_level)
+	reorient_object(input_file_name, output_file_name)
 
-	print yMax 
 	# process allowed domains
-	process_allowed_domains(allowed_domains_file_name, output_file_name, refinement_level, yMax)
+	process_allowed_domains(allowed_domains_file_name, output_file_name)
 
 	# process non-changing domains
-	process_nonchanging_domains(nonchanging_file_name, output_file_name, refinement_level, yMax)
+	process_nonchanging_domains(nonchanging_file_name, output_file_name)
 
 	print "Export done."

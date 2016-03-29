@@ -5,7 +5,7 @@ from Edge import Edge
 from Quad import Quad
 
 
-def quad_vert_generator(_verts, _quads, _fine_verts, _parameters ):
+def quad_vert_generator(_verts, _quads, _fine_verts, _parameters, refinement_level ):
     assert type(_verts) is np.ndarray
     assert type(_quads) is np.ndarray
     assert type(_fine_verts) is np.ndarray
@@ -74,12 +74,15 @@ def quad_vert_generator(_verts, _quads, _fine_verts, _parameters ):
 
     quads=[]
 
-    verts= [new_vertex_list[i].get_coordinates()  for i in range(new_vertex_list.__len__())]
-    fine_verts= [fine_vertex_list[i].get_coordinates()  for i in range(fine_vertex_list.__len__())]
+    verts= [new_vertex_list[i].get_coordinates()/(2**refinement_level)  for i in range(new_vertex_list.__len__())]
+    fine_verts= [fine_vertex_list[i].get_coordinates()/(2**refinement_level)  for i in range(fine_vertex_list.__len__())]
 
     for i in range(quad_list.__len__()):
         quads.append([quad_list[i].get_vertices()[j].get_id() for j in range(4)])
 
+    #verts = np.array(verts)
+    #quads = np.array(quads)
+    #fine_verts = np.array(fine_verts)
     return np.array(verts), np.array(quads), np.array(fine_verts), new_vertex_list, edge_dict, quad_list
 
 

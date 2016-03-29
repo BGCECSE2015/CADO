@@ -8,7 +8,7 @@ import Import
 import Draft
 import Part
 
-def reorient_object(input_file_name, output_file_name, refinement_level):
+def reorient_object(input_file_name, output_file_name):
 	__objToExport__ = FreeCAD.getDocument("tmp").findObjects()
 
 	# get the original file
@@ -18,7 +18,8 @@ def reorient_object(input_file_name, output_file_name, refinement_level):
 	bB = FreeCAD.getDocument("tmp").Objects[-1].Shape.BoundBox
 
 	# create rotation parameters
-	displacement = FreeCAD.Vector(2.0, 0.0, 0.0)
+	#print "XMin:", bB.XMin, "XMax:", bB.XMax, "YMin:", bB.YMin, "YMax:", bB.YMax, "ZMin:", bB.ZMin, "ZMax:", bB.ZMax
+	displacement = FreeCAD.Vector(-bB.ZMin, -bB.YMin, -bB.XMin)
 	centerRot = FreeCAD.Vector(bB.XMin, 0.5*(bB.YMin+bB.YMax), bB.ZMin)
 	axisRot1 = FreeCAD.Vector(0.0, 0.0, 1.0)
 	axisRot2 = FreeCAD.Vector(0.0, 1.0, 0.0)
@@ -27,7 +28,7 @@ def reorient_object(input_file_name, output_file_name, refinement_level):
 
 	# import the draft module
 	import Draft
-	#Draft.move(FreeCAD.getDocument("tmp").Objects[0], displacement, copy=False) # perform move
+	Draft.move(FreeCAD.getDocument("tmp").Objects[0], displacement, copy=False) # perform move
 	Draft.rotate(FreeCAD.getDocument("tmp").Objects[0], angleRot1, centerRot,axis=axisRot1,copy=False) # perform first rotation
 	Draft.rotate(FreeCAD.getDocument("tmp").Objects[0], angleRot2, centerRot,axis=axisRot2,copy=False) # perform second rotation
 

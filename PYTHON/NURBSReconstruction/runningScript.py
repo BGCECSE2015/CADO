@@ -50,7 +50,7 @@ args = parser.parse_args()
 print "### Surface Extraction ###"
 verts_coarse, quads_coarse, verts_fine, parameters = extract_surface(args.path, args.coarsening_factor)
 #verts_coarse, quads_coarse, verts_fine, parameters = extract_surface(path, coarsening_factor)
-vertices, quads, fine_vertices, new_vertex_list, edges, quad_list = quad_vert_generator(verts_coarse, quads_coarse, verts_fine, parameters)
+vertices, quads, fine_vertices, new_vertex_list, edges, quad_list = quad_vert_generator(verts_coarse, quads_coarse, verts_fine, parameters, args.refinement_level)
 
 
 print "### DooSabin ###"
@@ -66,7 +66,7 @@ print "### Peters' Scheme DONE### "
 # TODO: nonchanging_file_name should be a zero string if not provided by the user
 
 print "### Generating Step File ###"
-export_step( NURBSIndices, NURBSMatrix, args.refinement_level, args.input_file_name, args.output_file_name, nonchanging_file_name, allowed_domains_file_name)
+export_step( NURBSIndices, NURBSMatrix, args.input_file_name, args.output_file_name, nonchanging_file_name, allowed_domains_file_name)
 #export_step( NURBSIndices, NURBSMatrix, input_file_name, output_file_name, nonchanging_file_name, allowed_domains_file_name)
 print "### Step File DONE### "
 

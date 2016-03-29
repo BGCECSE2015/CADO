@@ -10,7 +10,7 @@ CONFIG += c++11
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET = CADO
+TARGET = cado
 TEMPLATE = app
 
 

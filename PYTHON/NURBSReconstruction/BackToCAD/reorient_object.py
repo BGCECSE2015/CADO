@@ -19,7 +19,7 @@ def reorient_object(input_file_name, output_file_name):
 
 	# create rotation parameters
 	#print "XMin:", bB.XMin, "XMax:", bB.XMax, "YMin:", bB.YMin, "YMax:", bB.YMax, "ZMin:", bB.ZMin, "ZMax:", bB.ZMax
-	displacement = FreeCAD.Vector(-bB.ZMin, -bB.YMin, -bB.XMin)
+	displacement = FreeCAD.Vector(-bB.ZMin, bB.YMin, -bB.XMin)
 	centerRot = FreeCAD.Vector(bB.XMin, 0.5*(bB.YMin+bB.YMax), bB.ZMin)
 	axisRot1 = FreeCAD.Vector(0.0, 0.0, 1.0)
 	axisRot2 = FreeCAD.Vector(0.0, 1.0, 0.0)

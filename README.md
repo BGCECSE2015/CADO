@@ -45,10 +45,10 @@ _Figure 2: Pipeline of **CADO**_
 
 ## Features of the final software
 
-*   Full **topology optimization** design cycle realized
-*   **User interaction** takes place only in the CAD world
+*   Full **topology optimization** design cycle
+*   **User interaction** only in the CAD world
 *   Output as standard **.step files** with NURBS geometry
-*   **Modular design** supports exchangability of components
+*   **Modular design** for exchangability of components
 *   Extensive code **documentation**
 *   Completely **Opensource** under BSD license ([CADO on Git](https://github.com/BGCECSE2015/CADO))
 

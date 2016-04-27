@@ -14,9 +14,13 @@ A common problem in product design is to create a functioning structure using as
 
 Topology optimization tackles the problem of material distribution in a structure in order to fulfil certain target loads. Several topology optimization open-source tools exist that are ready to use; however, it is still a challenge to incorporate these tools smoothly in the design process. The idea of this project is to allow these tools to work starting directly from CAD files and to transfer the resulting mesh-based solution back to the CAD world. Unfortunately, at the moment, there is no open-source solution for the conversion of mesh-based geometry to the spline-based CAD format. The common approach of converting each triangle of a mesh geometry directly into CAD format results in enormous file sizes. One of the biggest challenges of this project is thus to develop a conversion tool that feasibly provides a useful CAD-representation of the optimized surface.
 
-<center>![](Doc/Webpage/cado_window.png)</center>
 
-_Figure 1: **CADO** offers all the functionalities needed to optimize a given topology._
+<p align="center">
+	<img src="Doc/Webpage/cado_window.png"/>
+</p>
+<p align="center">
+	<i>Figure 1: <b>CADO</b> offers all the functionalities needed to optimize a given topology.</i>
+</p>
 
 ## Development overview
 
@@ -39,9 +43,12 @@ In summary, the process can be subdivided into six steps:
 		<br> By applying a boolean operation at the end to the optimized structure, we are able to define non-changing or cut-off regions.
 </ol>
 
-<center>![](Doc/Webpage/cado_pipeline.png)</center>
-
-_Figure 2: Pipeline of **CADO**_
+<p align="center">
+	<img src="Doc/Webpage/cado_pipeline.png"/>
+</p>
+<p align="center">
+	<i>Figure 2: Pipeline of <b>CADO</b></i>
+</p>
 
 ## Features of the final software
 
@@ -52,9 +59,12 @@ _Figure 2: Pipeline of **CADO**_
 *   Extensive code **documentation**
 *   Completely **Opensource** under BSD license ([CADO on Git](https://github.com/BGCECSE2015/CADO))
 
-<center>![](Doc/Webpage/testcases.png)</center>
-
-_Figure 3: **CADO** applied on three test cases Cantilever, Bridge and GE Bracket._
+<p align="center">
+	<img src="Doc/Webpage/testcases.png"/>
+</p>
+<p align="center">
+	<i>Figure 3: <b>CADO</b> applied on three test cases Cantilever, Bridge and GE Bracket.</i>
+</p>
 
 ## Documentation
 

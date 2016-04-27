@@ -1,5 +1,5 @@
 # CADO - Computer Aided Design Optimizer  
-A Topology Optimization Tool
+### A Topology Optimization Tool
 
 Saumitra Joshi, Juan Carlos Medina, Friedrich Menhorn, Severin Reiz, Benjamin Rüth, Erik Wannerberg, Anna Yurova
 
@@ -22,20 +22,22 @@ _Figure 1: **CADO** offers all the functionalities needed to optimize a given to
 
 **CADO** works as a fully integrated tool-chain from the CAD input file to an optimized CAD file. First, the input geometry undergoes voxelization using OpenCASCADE to ensure compatibility with the topology optimizer. Second, the topology is optimized by employing the open-source tool ToPy. Next, a two-stage Dual Contouring surface reconstruction scheme is executed on the output of topology optimization. This gives us coarse parametrization patches and fine vertices as output. A B-Spline surface is then fitted through this data by a least-square approach using control points described by the Peters’ scheme. In order to ensure continuous and smooth surfaces. Lastly, a FreeCAD macro script performs boolean operations to enforce geometric constraints and exports the geometry to a standardized CAD file.
 
-In summary, the process can be subdivided into five steps:
+In summary, the process can be subdivided into six steps:
 
-1.  CAD model:  
-    Initial design of the part including boundary conditions and applied forces.
-2.  Voxelization:  
-    Most topology optimizers need a voxel grid to work with. Since CAD formats are based on surfaces we first use an OpenCascade voxelizer to create a corresponding voxel grid.
-3.  Topology Optimization:  
-    The topology optimizer of choice was ToPy- an opensource tool written by William Hunter.
-4.  Surface Extraction:  
-    Dual contouring is used to extract a surface from the optimized voxel model.
-5.  Surface Fitting:  
-    Peters' Scheme is applied for fitting a surface of G1 continuously connected B-Spline patches to the extracted surface points.
-6.  Boolean Operation:  
-    By applying a boolean operation at the end to the optimized structure, we are able to define non-changing or cut-off regions.
+<ol type="a">
+	<li>CAD model:
+		<br> Initial design of the part including boundary conditions and applied forces.
+	<li>Voxelization: 
+		<br> Most topology optimizers need a voxel grid to work with. Since CAD formats are based on surfaces we first use an OpenCascade voxelizer to create a corresponding voxel grid. 
+	<li>Topology Optimization:
+		<br> The topology optimizer of choice was ToPy- an opensource tool written by William Hunter.
+	<li>Surface Extraction:
+		<br> Dual contouring is used to extract a surface from the optimized voxel model.
+	<li>Surface Fitting:
+		<br> Peters' Scheme is applied for fitting a surface of G1 continuously connected B-Spline patches to the extracted surface points.
+	<li>Boolean Operation:
+		<br> By applying a boolean operation at the end to the optimized structure, we are able to define non-changing or cut-off regions.
+</ol>
 
 <center>![](Doc/Webpage/cado_pipeline.png)</center>
 
@@ -43,10 +45,10 @@ _Figure 2: Pipeline of **CADO**_
 
 ## Features of the final software
 
-*   Full **topology optimization** design cycle realized
-*   **User interaction** takes place only in the CAD world
+*   Full **topology optimization** design cycle
+*   **User interaction** only in the CAD world
 *   Output as standard **.step files** with NURBS geometry
-*   **Modular design** supports exchangability of components
+*   **Modular design** for exchangability of components
 *   Extensive code **documentation**
 *   Completely **Opensource** under BSD license ([CADO on Git](https://github.com/BGCECSE2015/CADO))
 

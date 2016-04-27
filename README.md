@@ -1,5 +1,4 @@
-## Honours Project:  
-CADO - Computer Aided Design Optimizer  
+# CADO - Computer Aided Design Optimizer  
 A Topology Optimization Tool
 
 Saumitra Joshi, Juan Carlos Medina, Friedrich Menhorn, Severin Reiz, Benjamin Rüth, Erik Wannerberg, Anna Yurova
@@ -9,7 +8,7 @@ The Honours Project was done under the joint supervision of Arash Bakhtiari (_TU
 Topology optimization is becoming an increasingly important tool in CAD. Several open-source topology optimization tools already exist, but are generally unsuitable for efficient incorporation in a design process, as there is no straightforward way to reacquire an editable CAD format. For this purpose, the software **CADO** (Computer Aided Design Optimizer) was developed. The software incorporates a topology optimiser, which works on voxelized CAD designs, and gives back outputs in voxel grid representations. An algorithm to retrieve a CAD-ready surface representation of this data was designed. From the voxel data, a surface is extracted using Dual Contouring. This is reconstructed into a network of tensor product NURBS surface patches using a linear least-squares fitting scheme. The constraint to get smooth connections between the patches is applied by fitting to another network of points, related to the surface through a slightly modified version of the scheme of Peters. The NURBS surface patches are then readily converted to a standard CAD format, and other constraints are taken into account.  
 This project was conducted in cooperation with Siemens and had as a goal to deliver a software which is able to iterate through the whole pipeline from a CAD model over topology optimization back to CAD.
 
-### Motivation
+## Motivation
 
 A common problem in product design is to create a functioning structure using as little material as possible. Three decades ago, engineering design versions were drawn, prototypes created and experimental test performed. Nowadays, the field of topology optimization simplifies this process and stands as a powerful tool in engineering and design.
 
@@ -19,7 +18,7 @@ Topology optimization tackles the problem of material distribution in a structur
 
 _Figure 1: **CADO** offers all the functionalities needed to optimize a given topology._
 
-### Development overview
+## Development overview
 
 **CADO** works as a fully integrated tool-chain from the CAD input file to an optimized CAD file. First, the input geometry undergoes voxelization using OpenCASCADE to ensure compatibility with the topology optimizer. Second, the topology is optimized by employing the open-source tool ToPy. Next, a two-stage Dual Contouring surface reconstruction scheme is executed on the output of topology optimization. This gives us coarse parametrization patches and fine vertices as output. A B-Spline surface is then fitted through this data by a least-square approach using control points described by the Peters’ scheme. In order to ensure continuous and smooth surfaces. Lastly, a FreeCAD macro script performs boolean operations to enforce geometric constraints and exports the geometry to a standardized CAD file.
 
@@ -42,7 +41,7 @@ In summary, the process can be subdivided into five steps:
 
 _Figure 2: Pipeline of **CADO**_
 
-### Features of the final software
+## Features of the final software
 
 *   Full **topology optimization** design cycle realized
 *   **User interaction** takes place only in the CAD world
@@ -54,3 +53,11 @@ _Figure 2: Pipeline of **CADO**_
 <center>![](Doc/Webpage/testcases.png)</center>
 
 _Figure 3: **CADO** applied on three test cases Cantilever, Bridge and GE Bracket._
+
+## Documentation
+
+The installation and usage of CADO as well as the background theory and implementation details are explained in documentation files in the Doc folder:
+
+- Installation_Guide.pdf
+- User_Guide.pdf
+- CADO_Integrated_Topology_Optimization.pdf
